@@ -1,68 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
-    <title>ADATAVIZ</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>adataviz</title>
 </head>
 
 <body>
-    <main>
-        <header class="image">
-            <h1>ESPACES VERTS DE PARIS</h1>
-            <h2>Découvrez les jardins et les espaces verts de la capitale</h2>
-        </header>
+  <div id="app"></div>
+
+  <main>
+    <header class="image">
+      <h1>ESPACES VERTS DE PARIS</h1>
+      <h2>Découvrez les jardins et les espaces verts de la capitale</h2>
+      <input type="text" id="recherche" placeholder="Rechercher un jardin...">
+    </header>
+
+    <h2 class="texte"> 🌿 Nombre d'espaces verts : 5 </h2>
+
+    <section>
+      <div class="cartes" id="liste-jardins">
+       
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Données fournies par OpenData Paris</p>
+  </footer>
 
 
-        <p>Nombres d'espace verts : 5 </p>
-
-        <section>
-            <div class="cartes">
-                <article class="fiches">
-                    <h3>Nom du Jardin</h3>
-                    <p>Catégorie</p>
-                    <p>Adresse</p>
-                    <p>Code postal</p>
-                </article>
-
-                <article class="fiches">
-                   <h3>Nom du Jardin</h3>
-                    <p>Catégorie</p>
-                    <p>Adresse</p>
-                    <p>Code postal</p>
-                </article>
-
-                <article class="fiches">
-                    <h3>Nom du Jardin</h3>
-                    <p>Catégorie</p>
-                    <p>Adresse</p>
-                    <p>Code postal</p>
-                </article>
-
-                <article class="fiches">
-                    <h3>Nom du Jardin</h3>
-                    <p>Catégorie</p>
-                    <p>Adresse</p>
-                    <p>Code postal</p>
-                </article>
-
-                <article class="fiches">
-                   <h3>Nom du Jardin</h3>
-                    <p>Catégorie</p>
-                    <p>Adresse</p>
-                    <p>Code postal</p>
-                </article>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>Données fournies par OpenData Paris</p>
-    </footer>
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

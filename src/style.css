@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  background-color: rgb(251, 249, 244);
+}
+
+.image {
+  height: 350px;
+  background-image: url("./parc-vert.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.image h1,
+.image h2 {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+.image h1 {
+  font-size: 48px;
+  font-weight: 250;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.image h2 {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#recherche {
+    width: 350px;
+    padding: 12px 20px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    position: relative;
+    z-index: 1;
+}
+
+
+.texte {
+    font-size: large;
+    margin-left: 110px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.cartes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.fiches {
+    border: 1px solid #e2dddd;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fiches:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #f2f6f1;
+}
