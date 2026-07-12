@@ -1,48 +1,53 @@
 
 const getData = async () => {
   try {
-    const data = await fetch("https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/espaces_verts/records?limit=20")
+    const data = await fetch("https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/espaces_verts/records?limit=100")
     const jsonData = await data.json()
 
-    const mesParcs = [
-      jsonData.results[11],
-      jsonData.results[13],
-      jsonData.results[15],
-      jsonData.results[16],
-      jsonData.results[17]
+
+    const nomsChoisis = [
+      "JARDINIERE VERTICALE DU 53 RUE DES RONDEAUX",
+      "JARDINET DE LA RUE ALPHONSE BAUDIN",
+      "JARDINIERES DE LA RUE DE BELLEVUE",
+      "JARDINIERES DE LA RUE DE LA CONCERTATION",
+      "JARDINIERE VERTICALE DU SQUARE SAINT-LAMBERT 1"
     ];
 
-const liste = document.querySelector("#liste-jardins");
+    const mesParcs = jsonData.results.filter((jardin) =>
+      nomsChoisis.includes(jardin.nom_ev)
+    );
 
-mesParcs.forEach((jardin) => {
+    const liste = document.querySelector("#liste-jardins");
 
-const carte = document.createElement("article");
-carte.classList.add("fiches");
+    mesParcs.forEach((jardin) => {
 
-const nom = document.createElement("h3");
-nom.textContent = jardin.nom_ev;
+      const carte = document.createElement("article");
+      carte.classList.add("fiches");
 
-const categorie = document.createElement("p");
-categorie.textContent = `🌳 ${jardin.categorie}`;
+      const nom = document.createElement("h3");
+      nom.textContent = jardin.nom_ev;
 
-const adresse = document.createElement("p");
-adresse.textContent = `📍 ${jardin.adresse_numero} ${jardin.adresse_typevoie} ${jardin.adresse_libellevoie}`;
+      const categorie = document.createElement("p");
+      categorie.textContent = `🌳 ${jardin.categorie}`;
 
-const codePostal = document.createElement("p");
-codePostal.textContent = `📮 ${jardin.adresse_codepostal}`;
+      const adresse = document.createElement("p");
+      adresse.textContent = `📍 ${jardin.adresse_numero} ${jardin.adresse_typevoie} ${jardin.adresse_libellevoie}`;
 
-const annee = document.createElement("p");
-annee.textContent = `📅 Année d'ouverture : ${jardin.annee_ouverture}`;
+      const codePostal = document.createElement("p");
+      codePostal.textContent = `📮 ${jardin.adresse_codepostal}`;
 
-carte.appendChild(nom);
-carte.appendChild(categorie);
-carte.appendChild(adresse);
-carte.appendChild(codePostal);
-carte.appendChild(annee);
+      const annee = document.createElement("p");
+      annee.textContent = `📅 Année d'ouverture : ${jardin.annee_ouverture}`;
 
-liste.appendChild(carte);
+      carte.appendChild(nom);
+      carte.appendChild(categorie);
+      carte.appendChild(adresse);
+      carte.appendChild(codePostal);
+      carte.appendChild(annee);
 
-});
+      liste.appendChild(carte);
+
+    });
 
   } catch (error) {
     console.error(error)
